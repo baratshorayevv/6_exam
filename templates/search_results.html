@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qidiruv Natijalari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .product-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        .product-image {
+            max-width: 200px;   
+            width: 100%;
+            height: auto;
+            margin-right: 20px;
+        }
+        .product-description {
+            margin: 10px 0;
+            font-style: italic;
+            color: #555;
+        }
+        .product-price {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .no-results {
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Qidiruv Natijalari</h1>
+        {% if products %}
+            <ul>
+                {% for product in products %}
+                    <li class="product-item">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                        {% endif %}
+                        <div>
+                            <h2>{{ product.name }}</h2>
+                            <p class="product-description">{{ product.description }}</p>
+                            <p class="product-price">{{ product.new_price }} Dollar</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-results">Hech qanday mahsulot topilmadi.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

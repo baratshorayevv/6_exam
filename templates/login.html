@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish</title>
+    <link href="{% static 'online_shop/css/styles.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Tizimga Kirish</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Foydalanuvchi nomi:</label>
+                <input type="text" name="username" id="id_username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_password">Parol:</label>
+                <input type="password" name="password" id="id_password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Kirish</button>
+        </form>
+    </div>
+</body>
+</html>
